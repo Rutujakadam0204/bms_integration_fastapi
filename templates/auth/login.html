@@ -1,0 +1,29 @@
+{% extends 'base.html' %}{% block title %}Login{% endblock title %}
+{% block container %}
+<div class="container w-25 card text-center text-bg-info p-3 shadow-lg mb-5 rounded">
+  <div class="card-header">
+      <h2>Login</h2>
+      <div class="text-center">
+          <img style="width:150px" src="https://cdn3.vectorstock.com/i/1000x1000/60/12/rk-letter-initial-with-royal-wing-logo-template-vector-31566012.jpg" class="rounded" alt="...">
+      </div>
+  </div>
+  <div class="card-body text-bg-warning p-3">
+    <form method="post">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Email address</label>
+          <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Password</label>
+          <input type="password" name="password" class="form-control" id="exampleFormControlTextarea1" placeholder="Password">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Login">
+    </form>
+
+  </div>
+  <div class="card-footer text-body-secondary">
+    <a href="/registration" class="btn btn-danger">Registration</a>
+  </div>
+  </div>
+</div>
+{% endblock container %}
