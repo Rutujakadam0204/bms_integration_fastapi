@@ -9,7 +9,7 @@ class User(Base):
     password = Column(String(50), nullable=False)
     email = Column(String(100), unique=True, nullable=False)
 
-    display = relationship("Displaypermission", back_populates='owner')
+    # display = relationship("Displaypermission", back_populates='owner')
 
 class Displaypermission(Base):
     __tablename__ = 'display'
