@@ -9,7 +9,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 # DB_URL = 'mysql://root:Temp123@127.0.0.1:3306/rk_company'
-DB_URL = 'postgresql://rk_company_user:t5BT2Qlfwhbs1Qp0IFAY9Zly4nRaOYXr@dpg-cj8b6ekl975s738qjob0-a/rk_company'
+DB_URL = 'postgresql://rk_company_96oj_user:sKQmyXTTTIYZZyUgISAdW5D8qfB8xQti@dpg-cj90c6qvvtos73ftj7a0-a/rk_company_96oj'
 engine = create_engine(DB_URL)
 
 Base = declarative_base()
