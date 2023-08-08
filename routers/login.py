@@ -3,7 +3,8 @@ from pydantic import BaseModel
 from databases import get_database_session
 from sqlalchemy.orm import Session
 from models import User as ModelUser
-from typing import Optional, Annotated
+from typing import Optional
+from typing_extensions import Annotated
 from passlib.context import CryptContext
 from jose import JWTError, jwt
 from fastapi.security import OAuth2PasswordRequestForm,OAuth2PasswordBearer
