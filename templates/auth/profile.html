@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'overview.html' %}{% block title %}Payment Paid{% endblock title %}
+{% block container %}
+<div class="container-lg text-bg-light p-3">
+  <form id="profile">
+      <input type="text" name="secret_key" class="form-control" id="exampleFormControlInput1" placeholder="Secret Key">
+      <input type="submit" class="btn btn-primary" value="Submit">
+  </form>
+</div>
+<script>
+var cookies = $.cookie("access_token");
+console.log(cookies);
+    $( "#profile" ).on( "submit", function( event ) {
+      loginForm = $( this ).serializeArray();
 
-</body>
-</html>
+      event.preventDefault();
+      var loginFormObject = {};
+      $.each(loginForm,
+          function(i, v) {
+              loginFormObject[v.name] = v.value;
+          });
+
+        console.log(loginFormObject);
+      $.ajax({
+          type: 'post',
+          url: '/profile',
+          headers: {"Content-type": "application/json", 'Authorization': "Bearer "+cookies},
+          data: JSON.stringify(loginFormObject),
+          success: function(response) {
+<!--            location.href='/profile'-->
+console.log("hello");
+          },
+          error: function(response){
+              location.href='/login'
+          }
+      })
+    } );
+</script>
+{% endblock container %}

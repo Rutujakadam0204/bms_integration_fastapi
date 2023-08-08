@@ -1,19 +1,30 @@
-{% extends 'overview.html' %}{% block title %}Product Screen{% endblock title %}
-{% block container %}
+
 <div class="container-lg text-bg-light p-3">
   <table class="table table-striped">
     <thead>
       <tr class="text-bg-danger p-3">
-        <th>Sr. No.</th>
+        <th></th>
         <th>Product Name</th>
-        <th>Inventory Type</th>
-        <th>Brand Name</th><th>Batch Code</th><th>Product Code</th>
+        <th>Manufacturer Name</th>
+        <th>Brand Name</th><th>Product Code</th>
         <th>Expiry Date</th><th>Cost Price</th><th>Discount</th><th>Discount Price</th>
+        <th>Total Price</th>
       </tr>
     </thead>
     <tbody>
-      <tr></tr>
+    {% for i in product.pro %}
+      <tr><td><li></li></td>
+        <td>{{i.product_name}}</td>
+        <td>{{i.manufacturer_name}}</td>
+        <td>{{i.brand_name}}</td>
+        <td>{{i.product_code}}</td>
+        <td>{{i.expiry_date}}</td>
+        <td>{{i.cost_price}}</td>
+        <td>{{i.discount}}</td>
+        <td>{{i.discount_price}}</td>
+        <td>{{i.total_price}}</td>
+      </tr>
+    {% endfor %}
     </tbody>
   </table>
 </div>
-{% endblock container %}

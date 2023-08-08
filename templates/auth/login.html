@@ -8,10 +8,10 @@
       </div>
   </div>
   <div class="card-body text-bg-warning p-3">
-    <form method="post">
+    <form id="loginMe">
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Email address</label>
-          <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+          <input type="email" name="username" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
         </div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Password</label>
@@ -25,5 +25,27 @@
     <a href="/registration" class="btn btn-danger">Registration</a>
   </div>
   </div>
+
 </div>
+<script>
+    $( "#loginMe" ).on( "submit", function( event ) {
+      loginForm = $( this ).serializeArray();
+      event.preventDefault();
+      var loginFormObject = {};
+      $.each(loginForm,
+          function(i, v) {
+              loginFormObject[v.name] = v.value;
+          });
+
+
+      $.ajax({
+          type: 'post',
+          url: '/token',
+          data: loginFormObject,
+          success: function(response) {
+            location.href='/'
+          }
+      })
+    } );
+</script>
 {% endblock container %}

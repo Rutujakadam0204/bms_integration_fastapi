@@ -6,8 +6,9 @@ from sqlalchemy.orm import relationship
 class User(Base):
     __tablename__ = 'user'
     id = Column(Integer, primary_key = True)
-    password = Column(String(50), nullable=False)
+    password = Column(String(200), nullable=False)
     email = Column(String(100), unique=True, nullable=False)
+    secret_key = Column(String(1000), nullable=True)
 
     # display = relationship("Displaypermission", back_populates='owner')
 
@@ -20,4 +21,4 @@ class Displaypermission(Base):
     payment_paid = Column(Boolean, default=False)
     product = Column(Boolean, default=False)
 
-    owner = relationship("User", back_populates='display')
+    # owner = relationship("User", back_populates='display')

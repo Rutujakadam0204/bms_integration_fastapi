@@ -1,19 +1,29 @@
-{% extends 'overview.html' %}{% block title %}Company Information{% endblock title %}
-{% block container %}
+
 <div class="container-lg text-bg-light p-3">
   <table class="table table-striped">
     <thead>
       <tr class="text-bg-danger p-3">
         <th></th>
-        <th></th>
-        <th></th>
-        <th></th><th></th><th></th>
-        <th></th><th></th><th></th><th></th>
+        <th>Company name</th>
+        <th>Domain</th>
+        <th>Industry</th>
+        <th>no_of_emp</th>
+        <th>Email</th>
+        <th>Mobile Number</th>
       </tr>
     </thead>
     <tbody>
-      <tr></tr>
+      {% for i in company.company_info %}
+      <tr>
+        <td></td>
+        <td>{{i.name}}</td>
+        <td>{{i.domain_name}}</td>
+        <td>{{i.industry}}</td>
+        <td>{{i.no_of_emp}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.mobile_number}}</td>
+      </tr>
+      {% endfor %}
     </tbody>
   </table>
 </div>
-{% endblock container %}

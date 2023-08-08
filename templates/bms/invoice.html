@@ -1,19 +1,25 @@
-{% extends 'overview.html' %}{% block title %}Invoice{% endblock title %}
-{% block container %}
+
 <div class="container-lg text-bg-light p-3">
   <table class="table table-striped">
     <thead>
       <tr class="text-bg-danger p-3">
-        <th>Sr. No.</th>
-        <th>Product Name</th>
-        <th>Inventory Type</th>
-        <th>Brand Name</th><th>Batch Code</th><th>Product Code</th>
-        <th>Expiry Date</th><th>Cost Price</th><th>Discount</th><th>Discount Price</th>
+        <th></th>
+        <th>Invoice Id</th>
+        <th>Payment Type</th>
+        <th>Amount</th>
+        <th>Due Date</th>
       </tr>
     </thead>
     <tbody>
-      <tr></tr>
+    {% for i in invoice.invoice %}
+      <tr>
+        <td></td>
+        <td>{{i.invoice_id}}</td>
+        <td>{{i.payment_type}}</td>
+        <td>{{i.amount}}</td>
+        <td>{{i.due_date}}</td>
+      </tr>
+    {% endfor %}
     </tbody>
   </table>
 </div>
-{% endblock container %}
