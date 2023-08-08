@@ -26,13 +26,13 @@ from routers.login import Hasher
 
 @router.post("/registration")
 def read_user_me(request: Request, email: str=Form(...), password: str=Form(...), db: Session = Depends(get_database_session)):
-    existing_user = db.query(models.User).filter_by(email=email).first()
+    existing_user = db.query(ModelUser).filter_by(email=email).first()
     if existing_user:
         errors = "Email already registered"
         return templates.TemplateResponse("auth/register.html", {"request": request, "errors": errors})
     else:
         password_hash = Hasher.get_password_hash(password)
-        db_user = models.User(email=email, password=password_hash)
+        db_user = ModelUser(email=email, password=password_hash)
         db.add(db_user)
         db.commit()
         db.refresh(db_user)
